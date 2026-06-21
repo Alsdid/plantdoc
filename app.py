@@ -388,9 +388,9 @@ elif st.session_state.get("active_report"):
     col1, col2 = st.columns([1.1, 1])
 
     with col1:
-        st.image(active_report["annotated_img"], caption="탐지 결과", use_container_width=True)
+        st.image(active_report["annotated_img"], caption="탐지 결과", use_column_width=True)
         if active_report["crop_img"] is not None:
-            st.image(active_report["crop_img"], caption="주요 병변 영역", use_container_width=True)
+            st.image(active_report["crop_img"], caption="주요 병변 영역", use_column_width=True)
 
     with col2:
         plant_type = active_report["plant_type"]
@@ -436,7 +436,7 @@ else:
 
         if uploaded_file is not None:
             raw_image = Image.open(uploaded_file).convert("RGB")
-            st.image(raw_image, caption="업로드 원본 이미지", use_container_width=True)
+            st.image(raw_image, caption="업로드 원본 이미지", use_column_width=True)
 
             if st.button("🔍 진단 시작", type="primary", use_container_width=True):
                 if not plant_name_input.strip():
@@ -463,7 +463,7 @@ else:
                             st.warning("⚠️ 검출된 질병 영역이 없습니다.")
                             st.session_state["diagnosis_result"] = None
                         else:
-                            abnormal_detections = [d for d in detections if d["code"] != "0"]
+                            abnormal_detections = [d for d in detections if d["code"] not in ["0", "00"]]
                             best = abnormal_detections[0] if abnormal_detections else detections[0]
                             st.session_state["diagnosis_result"] = {
                                 "plant_name": plant_name_input.strip(),
