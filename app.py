@@ -58,12 +58,12 @@ MODEL_URLS = {
 }
 
 MODEL_PATHS = {
-    "딸기": os.path.join(WEIGHTS_DIR, "best.pt"),
-    "토마토": os.path.join(WEIGHTS_DIR, "best.pt"),
-    "고추": os.path.join(WEIGHTS_DIR, "best.pt"),
-    "파프리카": os.path.join(WEIGHTS_DIR, "best.pt"),
-    "오이": os.path.join(WEIGHTS_DIR, "best.pt"),
-    "포도": os.path.join(WEIGHTS_DIR, "best.pt")
+    "딸기": os.path.join(WEIGHTS_DIR, "best_s.pt"),
+    "토마토": os.path.join(WEIGHTS_DIR, "best_t.pt"),
+    "고추": os.path.join(WEIGHTS_DIR, "best_pe.pt"),
+    "파프리카": os.path.join(WEIGHTS_DIR, "best_pa.pt"),
+    "오이": os.path.join(WEIGHTS_DIR, "best_c.pt"),
+    "포도": os.path.join(WEIGHTS_DIR, "best_g.pt")
 }
 
 IMG_SIZE = {
